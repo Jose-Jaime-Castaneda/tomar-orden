@@ -43,8 +43,8 @@ export default function App() {
               />
 
               <TipFrom
-                setTip={setTip}
-                tip={tip}
+                dispatch={dispatch}
+                tip={state.tip}
               />
 
               <OrderTotal

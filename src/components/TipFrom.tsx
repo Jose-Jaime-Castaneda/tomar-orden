@@ -1,3 +1,5 @@
+import { OrderActions } from "../reducers/orderReducer"
+
 const tipOptions = [
     {
         id: 'tip-10',
@@ -17,11 +19,11 @@ const tipOptions = [
 ]
 
 type TipeFromProps = {
-    setTip: React.Dispatch<React.SetStateAction<number>>,
+    dispatch: React.Dispatch<OrderActions>
     tip: number
 }
 
-export default function ({ setTip, tip }: TipeFromProps) {
+export default function ({ dispatch, tip }: TipeFromProps) {
     return (
         <div>
             <h3 className="font-bold text-2xl">Propina:</h3>
@@ -35,7 +37,7 @@ export default function ({ setTip, tip }: TipeFromProps) {
                             name="tip"
                             value={tipOption.value}
                             id={tipOption.id}
-                            onChange={e => setTip(+e.target.value)}
+                            onChange={e => dispatch({ type: 'add-tip', payload: { value: +e.target.value } })}
                             checked={tipOption.value === tip}
                         />
                     </div>
