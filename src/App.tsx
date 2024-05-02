@@ -8,7 +8,7 @@ import useOrder from "./hooks/useOrder";
 import { initalState, orderReducer } from "./reducers/orderReducer";
 
 export default function App() {
-  const { order, tip, setTip, addItem, removeItem, placeOrder } = useOrder();
+  const { order, tip, setTip, removeItem, placeOrder } = useOrder();
 
   const [state, dispatch] = useReducer(orderReducer, initalState)
 
@@ -29,7 +29,7 @@ export default function App() {
               <MenuItem
                 key={item.id}
                 item={item}
-                addItem={addItem}
+                dispatch={dispatch}
               />
             ))}
           </div>
