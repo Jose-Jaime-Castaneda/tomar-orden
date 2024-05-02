@@ -3,7 +3,8 @@ import type { MenuItem, OrderItem } from "../types";
 export type OrderActions =
   | { type: "add-item"; payload: { item: MenuItem } }
   | { type: "remove-item"; payload: { id: MenuItem["id"] } }
-  | { type: "place-order" };
+  | { type: "place-order" }
+  | { type: "add-tip"; payload: { value: number } };
 
 export type OrderState = {
   order: OrderItem[];
@@ -26,6 +27,9 @@ export const orderReducer = (
   }
 
   if (action.type === "place-order") {
+  }
+
+  if (action.type === "add-tip") {
   }
 
   return state;
